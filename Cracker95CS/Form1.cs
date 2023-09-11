@@ -20,7 +20,7 @@ namespace Cracker95CS
                 CdCDBox1 = string.Empty;
                 CdCDBox2 = "1";
 
-                CdCDBox1 = r.Next(100, 365).ToString(); // generate box 1
+                CdCDBox1 = r.Next(100, 999).ToString(); // generate box 1
 
                 while (CdCDBox2.ToString().Select(digit => int.Parse(digit.ToString())).ToArray().Sum() % 7 != 0) // generate box 2
                 {
@@ -134,11 +134,12 @@ namespace Cracker95CS
                     }
                     else { KeyErrors += "Sum of Digits In Key Isnt Devisable By 7, "; }
 
-                    if (CDBox2[7] != 0 && CDBox2[7] < 8) // check if last digit is higher than 7 or is 0
+                    if (int.Parse(CDBox2[6].ToString()) != 0 && int.Parse(CDBox2[6].ToString()) < 8) // check if last digit is higher than 7 or is 0
                     {
                         ValidityScore += 1;
                     }
                     else { KeyErrors += "The last digit of the key must be lower than 8 and cant be 0, "; }
+                    
 
                     if (ValidatorInputBox.Text.Length == 11) // check key length
                     {

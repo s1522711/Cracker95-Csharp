@@ -139,7 +139,7 @@ namespace Cracker95CS
                         ValidityScore += 1;
                     }
                     else { KeyErrors += "The last digit of the key must be lower than 8 and cant be 0, "; }
-                    
+
 
                     if (ValidatorInputBox.Text.Length == 11) // check key length
                     {
@@ -166,7 +166,16 @@ namespace Cracker95CS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ValidatorOutputLabel.Text = ""; // make validator output label invisible on load
+            // ValidatorOutputLabel.Text = ""; // make validator output label invisible on load
+            timer1.Enabled = true;
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int TimerCounter = 0;
+            if (TimerCounter != 100) { progressBar1.PerformStep(); TimerCounter += 1; }
+            else { timer1.Stop(); timer1.Enabled = false; }
         }
     }
 }

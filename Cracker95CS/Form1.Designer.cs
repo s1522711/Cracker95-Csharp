@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             OutputKeyBox = new TextBox();
             GenerateBtn = new Button();
@@ -40,13 +41,17 @@
             ValidatorPasteBtn = new Button();
             ValidatorOutputLabel = new Label();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            progressBar1 = new ProgressBar();
+            timer1 = new System.Windows.Forms.Timer(components);
             KeyTypeSelectBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // OutputKeyBox
             // 
-            OutputKeyBox.Location = new Point(12, 12);
+            OutputKeyBox.Location = new Point(12, 34);
             OutputKeyBox.Name = "OutputKeyBox";
             OutputKeyBox.ReadOnly = true;
             OutputKeyBox.Size = new Size(156, 23);
@@ -54,7 +59,7 @@
             // 
             // GenerateBtn
             // 
-            GenerateBtn.Location = new Point(174, 12);
+            GenerateBtn.Location = new Point(174, 34);
             GenerateBtn.Name = "GenerateBtn";
             GenerateBtn.Size = new Size(75, 23);
             GenerateBtn.TabIndex = 1;
@@ -66,7 +71,7 @@
             // 
             KeyTypeSelectBox.Controls.Add(OemKeySel);
             KeyTypeSelectBox.Controls.Add(CdKeySel);
-            KeyTypeSelectBox.Location = new Point(216, 41);
+            KeyTypeSelectBox.Location = new Point(216, 63);
             KeyTypeSelectBox.Name = "KeyTypeSelectBox";
             KeyTypeSelectBox.Size = new Size(85, 78);
             KeyTypeSelectBox.TabIndex = 2;
@@ -97,7 +102,7 @@
             // 
             // CopyBtn
             // 
-            CopyBtn.Location = new Point(255, 12);
+            CopyBtn.Location = new Point(255, 34);
             CopyBtn.Name = "CopyBtn";
             CopyBtn.Size = new Size(75, 23);
             CopyBtn.TabIndex = 4;
@@ -138,9 +143,9 @@
             ValidatorOutputLabel.AutoSize = true;
             ValidatorOutputLabel.Location = new Point(12, 262);
             ValidatorOutputLabel.Name = "ValidatorOutputLabel";
-            ValidatorOutputLabel.Size = new Size(38, 15);
+            ValidatorOutputLabel.Size = new Size(346, 15);
             ValidatorOutputLabel.TabIndex = 8;
-            ValidatorOutputLabel.Text = "label1";
+            ValidatorOutputLabel.Text = "Enter a key above and press the validate button to validate a key!";
             // 
             // pictureBox1
             // 
@@ -152,12 +157,47 @@
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(148, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Windows 95 Key Generator";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 213);
+            label2.Name = "label2";
+            label2.Size = new Size(192, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Windows 95 CD/OEM Key Validator";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            progressBar1.Location = new Point(-1, 187);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(600, 23);
+            progressBar1.Style = ProgressBarStyle.Continuous;
+            progressBar1.TabIndex = 12;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 400;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(356, 286);
+            Controls.Add(progressBar1);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(ValidatorOutputLabel);
             Controls.Add(ValidatorPasteBtn);
@@ -169,6 +209,7 @@
             Controls.Add(OutputKeyBox);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
+            MaximumSize = new Size(9999, 325);
             MinimumSize = new Size(372, 325);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
@@ -194,5 +235,9 @@
         private Button ValidatorPasteBtn;
         private Label ValidatorOutputLabel;
         private PictureBox pictureBox1;
+        private Label label1;
+        private Label label2;
+        private ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -45,6 +45,9 @@
             label2 = new Label();
             progressBar1 = new ProgressBar();
             timer1 = new System.Windows.Forms.Timer(components);
+            GeneratorDebugOutput = new TextBox();
+            DebugBoxClear = new Button();
+            DebugBoxEnableCheckBox = new CheckBox();
             KeyTypeSelectBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -180,7 +183,7 @@
             progressBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             progressBar1.Location = new Point(-1, 187);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(600, 23);
+            progressBar1.Size = new Size(984, 23);
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.TabIndex = 12;
             // 
@@ -189,12 +192,49 @@
             timer1.Interval = 400;
             timer1.Tick += timer1_Tick;
             // 
+            // GeneratorDebugOutput
+            // 
+            GeneratorDebugOutput.Location = new Point(336, 12);
+            GeneratorDebugOutput.Multiline = true;
+            GeneratorDebugOutput.Name = "GeneratorDebugOutput";
+            GeneratorDebugOutput.ScrollBars = ScrollBars.Both;
+            GeneratorDebugOutput.Size = new Size(392, 169);
+            GeneratorDebugOutput.TabIndex = 13;
+            GeneratorDebugOutput.Visible = false;
+            // 
+            // DebugBoxClear
+            // 
+            DebugBoxClear.Location = new Point(336, 231);
+            DebugBoxClear.Name = "DebugBoxClear";
+            DebugBoxClear.Size = new Size(392, 23);
+            DebugBoxClear.TabIndex = 14;
+            DebugBoxClear.Text = "Clear debug box";
+            DebugBoxClear.UseVisualStyleBackColor = true;
+            DebugBoxClear.Visible = false;
+            DebugBoxClear.Click += DebugBoxClear_Click;
+            // 
+            // DebugBoxEnableCheckBox
+            // 
+            DebugBoxEnableCheckBox.AutoSize = true;
+            DebugBoxEnableCheckBox.BackColor = Color.Transparent;
+            DebugBoxEnableCheckBox.Location = new Point(215, 156);
+            DebugBoxEnableCheckBox.Name = "DebugBoxEnableCheckBox";
+            DebugBoxEnableCheckBox.Size = new Size(121, 19);
+            DebugBoxEnableCheckBox.TabIndex = 15;
+            DebugBoxEnableCheckBox.Text = "Enable debug box";
+            DebugBoxEnableCheckBox.UseVisualStyleBackColor = false;
+            DebugBoxEnableCheckBox.CheckedChanged += DebugBoxEnableCheckBox_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(356, 286);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(740, 286);
+            Controls.Add(DebugBoxEnableCheckBox);
+            Controls.Add(DebugBoxClear);
+            Controls.Add(GeneratorDebugOutput);
             Controls.Add(progressBar1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -239,5 +279,8 @@
         private Label label2;
         private ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private TextBox GeneratorDebugOutput;
+        private Button DebugBoxClear;
+        private CheckBox DebugBoxEnableCheckBox;
     }
 }

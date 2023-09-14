@@ -26,6 +26,7 @@ namespace Cracker95CS
                 {
                     // ValidatorInputBox.Text = ValidatorInputBox.Text + CdCDBox2 + "\n";
                     CdCDBox2 = r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(1, 7).ToString();
+                    if (DebugBoxEnableCheckBox.Checked == true) { GeneratorDebugOutput.Text += CdCDBox2 + " "; }
                 }
 
                 OutputKeyBox.Text = CdCDBox1 + "-" + CdCDBox2; // output generated CD key
@@ -47,6 +48,7 @@ namespace Cracker95CS
                 {
                     // ValidatorInputBox.Text = ValidatorInputBox.Text + CdCDBox2 + "\n";
                     OemCDBox2 = "0" + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(0, 9).ToString() + r.Next(1, 7).ToString();
+                    if (DebugBoxEnableCheckBox.Checked == true) { GeneratorDebugOutput.Text += OemCDBox2 + " "; }
                 }
 
                 OemBox3 = r.Next(10000, 99999).ToString(); // generate last 5 digits of key (box 5)
@@ -169,6 +171,9 @@ namespace Cracker95CS
             // ValidatorOutputLabel.Text = ""; // make validator output label invisible on load
             timer1.Enabled = true;
             timer1.Start();
+            DebugBoxClear.Visible = false;
+            GeneratorDebugOutput.Visible = false;
+            this.Size = new Size(372, 325);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -176,6 +181,25 @@ namespace Cracker95CS
             int TimerCounter = 0;
             if (TimerCounter != 100) { progressBar1.PerformStep(); TimerCounter += 1; }
             else { timer1.Stop(); timer1.Enabled = false; }
+        }
+
+        private void DebugBoxClear_Click(object sender, EventArgs e)
+        {
+            GeneratorDebugOutput.Text = string.Empty;
+        }
+
+        private void DebugBoxEnableCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DebugBoxEnableCheckBox.Checked == true)
+            {
+                DebugBoxClear.Visible = true;
+                GeneratorDebugOutput.Visible = true;
+            }
+            else
+            {
+                DebugBoxClear.Visible = false;
+                GeneratorDebugOutput.Visible = false;
+            }
         }
     }
 }
